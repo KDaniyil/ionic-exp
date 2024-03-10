@@ -1,0 +1,7 @@
+{
+  "name": "ionic-expery",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

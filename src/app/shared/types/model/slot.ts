@@ -1,0 +1,53 @@
+export interface SlotsAvailability {
+  date: string;
+  items: Slot[];
+}
+export interface Slot {
+  id: number;
+  status: string;
+  name: string;
+  abstract?: string;
+  description?: string;
+  note?: string;
+  productId: number;
+  hourStart: string;
+  hourEnd?: string;
+  priceFirst: number;
+  priceSecond?: number;
+  priceThird?: number;
+  valuta: string;
+  qtyMaxFirst: number;
+  qtyMaxSecond?: number;
+  order?: number;
+  jan: boolean;
+  feb: boolean;
+  mar: boolean;
+  apr: boolean;
+  may: boolean;
+  jun: boolean;
+  jul: boolean;
+  aug: boolean;
+  sep: boolean;
+  oct: boolean;
+  nov: boolean;
+  dec: boolean;
+  dateStart?: string;
+  dateEnd?: string;
+  mon: boolean;
+  tue: boolean;
+  wed: boolean;
+  thu: boolean;
+  fri: boolean;
+  sat: boolean;
+  sun: boolean;
+  userId?: number;
+  ownerId?: number;
+  groupId?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
+// priceTotal: number;
+//   selected: boolean;
+//   service: Product;
+//   countAdult: number;
+//   countChild: number;

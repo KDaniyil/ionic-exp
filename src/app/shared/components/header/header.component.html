@@ -1,0 +1,94 @@
+<!--------------- menu chiuso --------------->
+<div
+  *ngIf="
+    router.url !== '/home' && router.url !== '/intro' && router.url !== '/'
+  "
+  class="header"
+>
+  <div class="elementi_header">
+    <ng-container *ngIf="router.url !== '/login' && router.url !== '/services'">
+      <span class="material-icons-round tasto_header tasto_back"
+        >arrow_back</span
+      >
+    </ng-container>
+
+    <img src="assets/img/logo_expery.svg" class="logo" />
+    <ng-template #noLink>
+      <img src="assets/img/logo_expery.svg" class="logo" />
+    </ng-template>
+
+    <div class="contenitore_tasto_header">
+      <img src="{{ 'home.flag' }}" />
+      <span
+        *ngIf="router.url !== '/login'"
+        class="icona material-icons-round tasto_header tasto_menu"
+        (click)="showMenu = true"
+        >menu_open</span
+      >
+    </div>
+  </div>
+</div>
+
+<!-- aggiungere la classe barra_header_visibile per mostrare lo sfondo sotto al menu quando si scrolla in basso -->
+<div
+  *ngIf="router.url !== '/home'"
+  id="fascia_header"
+  class="barra_header"
+  [ngClass]="{ barra_header_visibile: isVisibleInView | async }"
+></div>
+<!--------------- fine menu chiuso --------------->
+
+<!-- menu aperto -->
+<!-- aggiungere la classe contenitore_menu_fuori per mostrare il menu -->
+<div class="contenitore_menu" [ngClass]="{ contenitore_menu_fuori: showMenu }">
+  <div class="menu">
+    <div class="menu_margine_ios"></div>
+
+    <div class="contenitore_chiudi_menu" (click)="showMenu = false">
+      <span class="material-icons-round tasto_header">clear</span>
+    </div>
+
+    <!-- da mostrare quando l'agenzia si logga -->
+    <div class="area_agenzia" *ngIf="isAgency">
+      <h2>{{ user?.name }}</h2>
+    </div>
+
+    <ul class="menu_tasti">
+      <!-- da mostrare se l'agenzia non è loggata -->
+      <li (click)="showMenu = false" *ngIf="!isAgency" routerLink="/login">
+        {{ "menu.link_agency" }}
+      </li>
+
+      <li (click)="showMenu = false" routerLink="/services">
+        {{ "menu.link_calendar" }}
+      </li>
+
+      <li
+        (click)="showMenu = false"
+        *ngIf="isAgency"
+        routerLink="/reservations-history"
+      >
+        {{ "menu.link_reservations" }}
+      </li>
+      <li (click)="showMenu = false" routerLink="/contacts">
+        {{ "menu.link_contacts" }}
+      </li>
+      <!-- <li (click)="showMenu = false" (click)="showLanguagePopup()">
+          {{ 'menu.link_language' | translate }}
+        </li> -->
+      <li
+        (click)="showMenu = false"
+        *ngIf="user?.status === 'active'"
+        routerLink="/home"
+      >
+        {{ "menu.link_logout" }}
+      </li>
+      <li (click)="showMenu = false" *ngIf="isAgency" routerLink="/home">
+        {{ "menu.link_delete_account" }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="bg_menu" (click)="showMenu = false"></div>
+</div>
+<!-- fine menu aperto -->

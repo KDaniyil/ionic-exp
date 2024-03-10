@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Servizi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <swiper-container
+    style="height: 100%"
+    #swiper
+    [slidesPerView]="1"
+    [spaceBetween]="10"
+    [autoplay]="true"
+    [speed]="1000"
+    [loop]="true"
+    [autoplayDelay]="2000"
+    [autoplayDisableOnInteraction]="false"
+    (afterInit)="afterInit()"
+  >
+    <swiper-slide *ngFor="let slide of mainSlider">
+      <a
+        [routerLink]="['/service-details', slide.id]"
+        class="singola_intestazione"
+      >
+        <div
+          style="background-image: url('{{ slide?.imageUrl }}');"
+          class="immagine_singola_intestazione"
+        ></div>
+
+        <div class="descrizione_slide">
+          <div class="testo_descrizione_slide" data-swiper-parallax="-400">
+            <span>{{ slide?.name }}</span>
+            <strong>{{ slide?.name }}</strong>
+            <p [innerHTML]="slide?.description"></p>
+          </div>
+        </div>
+      </a>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

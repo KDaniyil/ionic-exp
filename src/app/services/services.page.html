@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
@@ -6,13 +6,11 @@
     <ion-title>Servizi</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <div class="sfondo_pagina contenitore_pagina">
     <div class="contenuto">
       <div class="contenitore_slider">
         <swiper-container
-          style="height: 100%"
           #swiper
           [slidesPerView]="1"
           [spaceBetween]="10"

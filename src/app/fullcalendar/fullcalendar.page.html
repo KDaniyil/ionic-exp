@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fullcalendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="sfondo_pagina contenitore_pagina">
+    <div class="contenuto">
+      <div class="colonna_contenuto">
+        <div class="intro">
+          <div class="componenti_intro">
+            <div class="titolo_pagina_intro">
+              <h1>{{ 'Titolo' }}<strong>{{ 'Nome Prodotto' }}</strong></h1>
+            </div>
+          </div>
+        </div>
+        <div class="contenitore_calendario">
+          <full-calendar
+            #fullcalendar
+            [options]="calendarOptions"
+          ></full-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

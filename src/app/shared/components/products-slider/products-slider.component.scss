@@ -1,0 +1,176 @@
+.singola_categoria {
+    display: block;
+    width: 100%;
+    position: relative;
+    /* overflow: hidden; */
+    /* border-radius: 5px; */
+    border-bottom: 6px solid transparent;
+  }
+  
+  .singola_categoria .immagine_categoria {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .singola_categoria .immagine_categoria:before {
+    content: "";
+    display: block;
+    padding-top: 80%;
+  }
+  
+  .singola_categoria .immagine_categoria .descrizione_categoria {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+  }
+  
+  .categoria_blu {
+    background-color: #066aa6;
+  }
+  
+  .categoria_arancione {
+    background-color: #e96632;
+  }
+  
+  .categoria_giallo {
+    background-color: #f7ae61;
+  }
+  
+  .categoria_viola {
+    background-color: #925ba4;
+  }
+  
+  .categoria_verde {
+    background-color: #afaf70;
+  }
+  
+  .categoria_azzurro {
+    background-color: #1ca596;
+  }
+  
+  .categoria_verde_scuro {
+    background-color: #3a8e36;
+  }
+  
+  .categoria_fucsia {
+    background-color: #cb4689;
+  }
+  
+  .singola_categoria .immagine_categoria .descrizione_categoria p {
+    box-sizing: border-box;
+    margin: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    height: 44px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--default);
+  }
+  
+  .singola_categoria .etichetta_categoria {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    background-color: var(--default);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--spento);
+    padding: 10px;
+  }
+  
+  .singola_categoria .promo {
+    display: block;
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+  }
+  
+  .singola_categoria .promo.promo1 {
+    max-width: 70px;
+    bottom: -6px;
+    right: -4px;
+  }
+  
+  .singola_categoria .promo.promo2 {
+    max-width: 70px;
+    bottom: -6px;
+    right: -4px;
+  }
+  
+  .singola_categoria .promo.promo3 {
+    max-width: 70px;
+    bottom: -6px;
+    right: -4px;
+  }
+  
+  .singola_categoria .promo.promo4 {
+    max-width: 45px;
+    bottom: -6px;
+    right: 12px;
+    transform: rotateZ(90deg);
+  }
+  
+  .singola_categoria .promo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  
+  /* --------------- MEDIA QUERIES --------------- */
+  @media only screen and (max-width: 991px) {
+    .singola_categoria .immagine_categoria:before {
+      padding-top: 85%;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .titolo_pagina_intro h1 {
+      padding: 0;
+    }
+    .filtra_risultati {
+      padding: 20px 0 0 0;
+    }
+    .contenitore_categorie {
+      padding: 20px 20px 10px 20px;
+    }
+    .singola_categoria .immagine_categoria:before {
+      padding-top: 70%;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .componenti_intro,
+    .contenitore_categorie {
+      padding: 20px 15px;
+    }
+    .singola_categoria .immagine_categoria:before {
+      padding-top: 60%;
+    }
+    .slider_categoria .bg_slider_categoria_2 {
+      display: none;
+    }
+    .singola_categoria {
+      border-right: 6px solid transparent;
+    }
+  }
+  

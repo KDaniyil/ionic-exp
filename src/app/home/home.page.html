@@ -1,10 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-button routerLink="/services">Servizi</ion-button>
-  <ion-button routerLink="/calendar">Calendario</ion-button>
+  <!-- inizio contenitore pagina -->
+  <!-- singola immagine -->
+  <!-- <div class="sfondo_immagine contenitore_pagina" style="background-image:url('assets/img/immagine_intro.jpg')"> -->
+
+  <!-- video -->
+  <div class="sfondo_video contenitore_pagina">
+    <video autoplay playsinline muted #videoElement></video>
+    <!-- inizio contenuto -->
+    <div class="contenuto">
+      <div class="colonna_contenuto">
+        <!-- inizio intro -->
+        <div class="intro">
+          <div class="tasto_header tasto_scelta_lingua">
+            <img src="{{ 'home.flag' }}" alt="" />
+            <!-- {{ 'home.lan' | translate }} -->
+            <!-- <span class="icona material-icons-round">expand_more</span> -->
+          </div>
+          <div class="componenti_intro">
+            <img src="assets/img/logo_expery.svg" />
+          </div>
+        </div>
+        <!-- fine intro -->
+
+        <div class="block w100 text_center">
+          <ion-button routerLink="/services" shape="round" size="large" color=""
+            >Servizi</ion-button
+          >
+          <ion-button shape="round" size="large" routerLink="/calendar"
+            >Calendario</ion-button
+          >
+          <ion-button shape="round" size="large" routerLink="/fullcalendar"
+            >FullCalendar</ion-button
+          >
+
+          <!-- <div class="codice_agenzia block w100 text_center">
+          <u routerLink="/login">{{ 'home.cta_agency' | translate }}?</u>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- fine contenuto -->
+  </div>
+  <!-- fine contenitore pagina -->
 </ion-content>

@@ -8,9 +8,30 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">calendar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="sfondo_pagina contenitore_pagina">
+    <div class="contenuto">
+      <div class="colonna_contenuto">
+        <div class="contenitore_calendario">
+          <calendar
+            [eventSource]="eventSource"
+            [queryMode]="calendar.queryMode"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            [step]="calendar.step"
+            [preserveScrollPosition]="calendar.preserveScrollPosition"
+            [startHour]="calendar.startHour"
+            [scrollToHour]="calendar.scrollToHour"
+            [dayviewCategorySource]="calendar.dayviewCategorySource"
+            [dayviewShowCategoryView]="calendar.dayviewShowCategoryView"
+            (onCurrentDateChanged)="onCurrentDateChanged($event)"
+            (onEventSelected)="onEventSelected($event)"
+            (onTitleChanged)="onViewTitleChanged($event)"
+            (onTimeSelected)="onTimeSelected($event)"
+            (onDayHeaderSelected)="onDayHeaderSelected($event)"
+          >
+          </calendar>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

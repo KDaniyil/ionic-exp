@@ -1,0 +1,65 @@
+<swiper-container
+  slides-per-view="3"
+  space-between="30"
+  free-mode="true"
+  speed="1000"
+  loop="true"
+>
+  <swiper-slide
+    *ngFor="let product of productsWithCampaign; trackBy: trackByProductId"
+  >
+    <a class="singola_categoria">
+      <div
+        class="immagine_categoria"
+        style="background-image: url('{{ product?.imageUrl }}');"
+      >
+        <div
+          class="descrizione_categoria"
+          [ngClass]="{
+            categoria_blu: i === 0 || i === 8,
+            categoria_arancione: i === 1 || i === 9,
+            categoria_giallo: i === 2 || i === 10,
+            categoria_viola: i === 3 || i === 11,
+            categoria_verde: i === 4 || i === 12,
+            categoria_azzurro: i === 5 || i === 13,
+            categoria_verde_scuro: i === 6 || i === 14,
+            categoria_fucsia: i === 7 || i === 15
+          }"
+        >
+          <p>{{ product.name }}</p>
+        </div>
+      </div>
+      <div
+        class="promo promo1"
+        *ngIf="product?.campaign"
+        [ngClass]="{
+          promo1: product.campaignType === 1,
+          promo2: product.campaignType === 2,
+          promo3: product.campaignType === 3,
+          promo4: product.campaignType === 4
+        }"
+      >
+        <img
+          *ngIf="product.campaignType === 1"
+          src="assets/img/promo1.svg"
+          alt="Promo"
+        />
+        <img
+          *ngIf="product.campaignType === 2"
+          src="assets/img/promo2.svg"
+          alt="Promo"
+        />
+        <img
+          *ngIf="product.campaignType === 3"
+          src="assets/img/promo3.svg"
+          alt="Promo"
+        />
+        <img
+          *ngIf="product.campaignType === 4"
+          src="assets/img/promo4.svg"
+          alt="Promo"
+        />
+      </div>
+    </a>
+  </swiper-slide>
+</swiper-container>

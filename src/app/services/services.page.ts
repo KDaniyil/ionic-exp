@@ -15,6 +15,9 @@ import { AppService } from '../shared/services/app.service';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import Swiper from 'swiper';
 import { SwiperContainer } from 'swiper/element';
+import { ProductsSliderComponent } from '../shared/components/products-slider/products-slider.component';
+import { addIcons } from 'ionicons';
+import { list, search } from 'ionicons/icons';
 
 @Component({
   selector: 'app-services',
@@ -28,6 +31,7 @@ import { SwiperContainer } from 'swiper/element';
     FormsModule,
     RouterLink,
     HeaderComponent,
+    ProductsSliderComponent,
   ],
 })
 export class ServicesPage implements OnInit {
@@ -35,7 +39,9 @@ export class ServicesPage implements OnInit {
   categoriesAndProducts: any[] = [];
   swiper!: Swiper;
   @ViewChild('swiper') swiperRef!: ElementRef<SwiperContainer>;
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService) {
+    addIcons({ list, search });
+  }
 
   ngOnInit() {
     this.loadSlider();
@@ -100,6 +106,7 @@ export class ServicesPage implements OnInit {
           products: productsWithImages,
         });
       }
+      console.log(this.categoriesAndProducts);
     } catch (error) {
       throw new Error();
     } finally {

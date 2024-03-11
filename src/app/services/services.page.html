@@ -8,36 +8,73 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <swiper-container
-    style="height: 100%"
-    #swiper
-    [slidesPerView]="1"
-    [spaceBetween]="10"
-    [autoplay]="true"
-    [speed]="1000"
-    [loop]="true"
-    [autoplayDelay]="2000"
-    [autoplayDisableOnInteraction]="false"
-    (afterInit)="afterInit()"
-  >
-    <swiper-slide *ngFor="let slide of mainSlider">
-      <a
-        [routerLink]="['/service-details', slide.id]"
-        class="singola_intestazione"
-      >
-        <div
-          style="background-image: url('{{ slide?.imageUrl }}');"
-          class="immagine_singola_intestazione"
-        ></div>
+  <div class="sfondo_pagina contenitore_pagina">
+    <div class="contenuto">
+      <div class="contenitore_slider">
+        <swiper-container
+          style="height: 100%"
+          #swiper
+          [slidesPerView]="1"
+          [spaceBetween]="10"
+          [autoplay]="true"
+          [speed]="1000"
+          [loop]="true"
+          [autoplayDelay]="2000"
+          [parallax]="true"
+          [autoplayDisableOnInteraction]="false"
+          (afterInit)="afterInit()"
+        >
+          <swiper-slide *ngFor="let slide of mainSlider">
+            <a class="singola_intestazione">
+              <div
+                style="background-image: url('{{ slide?.imageUrl }}');"
+                class="immagine_singola_intestazione"
+              ></div>
 
-        <div class="descrizione_slide">
-          <div class="testo_descrizione_slide" data-swiper-parallax="-400">
-            <span>{{ slide?.name }}</span>
-            <strong>{{ slide?.name }}</strong>
-            <p [innerHTML]="slide?.description"></p>
-          </div>
+              <div class="descrizione_slide">
+                <div
+                  class="testo_descrizione_slide"
+                  data-swiper-parallax="-400"
+                >
+                  <span>{{ slide?.name }}</span>
+                  <strong>{{ slide?.name }}</strong>
+                  <p [innerHTML]="slide?.description"></p>
+                </div>
+              </div>
+            </a>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+    <div class="contenitore_categorie">
+      <div class="filtra_risultati">
+        <!-- campo filtri -->
+        <div class="campo_filtri">
+          <ion-button shape="round" class="icona"
+            ><ion-icon name="list"></ion-icon>
+          </ion-button>
         </div>
-      </a>
-    </swiper-slide>
-  </swiper-container>
+        <!-- campo ricerca -->
+        <div class="campo campo_ricerca">
+          <input type="text" name="search" />
+          <ion-icon
+            name="search"
+            style="color: var(--spento); font-size: 30px"
+          ></ion-icon>
+          <!-- <ion-button shape="round" class="icona"> </ion-button> -->
+        </div>
+      </div>
+      <!-- categoria DESKTOP -->
+      <div
+        class="contenitore_singola_categoria contenitore_singola_categoria_desktop"
+        *ngFor="let category of categoriesAndProducts; let i = index"
+      >
+        <div class="titolo_categoria">{{ category?.name }}</div>
+        <div class="slider_categoria">
+          <app-products-slider [products]="category.products" [i]="i">
+          </app-products-slider>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

@@ -1,27 +1,96 @@
-#container {
-  text-align: center;
+.contenuto {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100vh;
+  padding-bottom: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+}
 
+ion-button {
+  --background: var(--evidente);
+}
+
+.colonna_contenuto {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  align-content: space-between;
+  padding: 50px 20px;
+}
+
+.intro {
+  padding-top: 0;
+}
+
+.componenti_intro {
+  padding: 0;
+}
+
+.componenti_intro img {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.tasto_header.tasto_scelta_lingua {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  right: 40px;
+  z-index: 30;
+  justify-content: right;
+  align-items: flex-start;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+.tasto_header.tasto_scelta_lingua img {
+  display: inline-block;
+  width: 100%;
+  max-width: 30px;
+  height: auto;
   margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+.codice_agenzia {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--spento);
+  margin: 40px auto 0 auto;
+}
+
+.codice_agenzia:active {
+  color: var(--default);
+}
+
+
+
+
+@media only screen and (min-width:1201px) {
+  .colonna_contenuto {
+    padding: 40px 20px 100px 20px!important;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .componenti_intro img {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (max-width:480px) {
+  .tasto_header.tasto_scelta_lingua {
+    right: 0;
+  }
 }
